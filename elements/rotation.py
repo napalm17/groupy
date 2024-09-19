@@ -1,4 +1,4 @@
-from utils import Utility
+from helpers.utils import Utility
 
 class RotateReflect:
     def __init__(self, rotations: int, reflection=False, order=1):
@@ -21,4 +21,16 @@ class RotateReflect:
     def __hash__(self):
         return hash((self.rotations, self.reflection))
 
-#print(RotateReflect(2, False, 4)*RotateReflect(2, True, 4))
+    def __pow__(self, power, modulo=None):
+        result = self
+        for i in range(power - 1):
+            result *= result
+        return result
+
+    def __lt__(self, other):
+        return (self.reflection, self.rotations) < (other.reflection, other.rotations)
+
+    def __gt__(self, other):
+        return (self.reflection, self.rotations) > (other.reflection, other.rotations)
+
+

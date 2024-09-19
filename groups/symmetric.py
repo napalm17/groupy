@@ -1,7 +1,6 @@
 from group import Group
-from operations import perm_composition
 import itertools
-from permutation import PermutationArray
+from elements.permutation import PermutationArray
 
 
 class SymmetricGroup(Group):
@@ -17,7 +16,12 @@ class SymmetricGroup(Group):
     def alternating_group(self):
         return self.commutator_subgroup()
 
+
+
+
 S3 = SymmetricGroup(3)
 A3 = S3.alternating_group()
 
-print(S3.quotient_group(A3).is_group())
+S3.cayley_graph().plot()
+
+#print(S3.commutator_subgroup() == CyclicGroup(3))

@@ -4,29 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b0257a8-6d20-4540-b4b8-4a18abfba1ff" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/groupy.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/algorithms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alternating.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bijection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/coset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cyclic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dihedral.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/direct_product.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/element.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/group.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/integer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/map.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/operations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/permutation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rotation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/symmetric.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+    <list default="true" id="1b0257a8-6d20-4540-b4b8-4a18abfba1ff" name="Changes" comment="1.0">
+      <change afterPath="$PROJECT_DIR$/elements/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/elements/unit_complex.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/U(1).py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/groups/automorphism.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helpers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maps/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vfx/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vfx/graph.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vfx/table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/algorithms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alternating.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/alternating.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bijection.py" beforeDir="false" afterPath="$PROJECT_DIR$/maps/bijection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cyclic.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/cyclic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dihedral.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/dihedral.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/direct_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/direct_product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/element.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/group.py" beforeDir="false" afterPath="$PROJECT_DIR$/group.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integer.py" beforeDir="false" afterPath="$PROJECT_DIR$/elements/integer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/map.py" beforeDir="false" afterPath="$PROJECT_DIR$/maps/map.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/operations.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/operations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/permutation.py" beforeDir="false" afterPath="$PROJECT_DIR$/elements/permutation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/elements/rotation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symmetric.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/symmetric.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,12 +47,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/napalm17/groupy.git",
-    "accountId": "07368c36-e7bf-46e9-99e0-57ac89893c1c"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;napalm17&quot;
   }
-}]]></component>
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/napalm17/groupy.git&quot;,
+    &quot;accountId&quot;: &quot;07368c36-e7bf-46e9-99e0-57ac89893c1c&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -65,47 +75,41 @@
     "Python.Algorithms.executor": "Run",
     "Python.Element.executor": "Run",
     "Python.Group.executor": "Run",
+    "Python.Table.executor": "Run",
+    "Python.U(1).executor": "Run",
     "Python.algorithms.executor": "Run",
     "Python.alternating.executor": "Run",
+    "Python.automorphism.executor": "Run",
     "Python.coset.executor": "Run",
     "Python.cyclic.executor": "Run",
     "Python.cyclic_group.executor": "Run",
     "Python.dihedral.executor": "Run",
+    "Python.graph.executor": "Run",
     "Python.group.executor": "Run",
     "Python.integer.executor": "Run",
     "Python.operations.executor": "Run",
     "Python.permutation.executor": "Run",
     "Python.rotation.executor": "Run",
     "Python.symmetric.executor": "Run",
+    "Python.table.executor": "Run",
+    "Python.unit_complex.executor": "Run",
+    "Python.unit_complexes.executor": "Run",
     "Python.utils.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.cyclic">
-    <configuration name="coset" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="groupy" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/coset.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Visualisation" />
+      <recent name="$PROJECT_DIR$/helpers" />
+      <recent name="$PROJECT_DIR$/groups" />
+      <recent name="$PROJECT_DIR$/maps" />
+      <recent name="$PROJECT_DIR$/elements" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.symmetric">
     <configuration name="cyclic" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="groupy" />
       <option name="ENV_FILES" value="" />
@@ -119,7 +123,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cyclic.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/groups/cyclic.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -128,7 +132,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="operations" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="graph" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="groupy" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -137,11 +141,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/vfx" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/operations.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/vfx/graph.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -150,7 +154,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="permutation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="rotation" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="groupy" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -159,11 +163,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/elements" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/permutation.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/elements/rotation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -185,7 +189,29 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/symmetric.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/groups/symmetric.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="table" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="groupy" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Visualisation/table.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -196,11 +222,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.cyclic" />
-        <item itemvalue="Python.operations" />
         <item itemvalue="Python.symmetric" />
-        <item itemvalue="Python.coset" />
-        <item itemvalue="Python.permutation" />
+        <item itemvalue="Python.cyclic" />
+        <item itemvalue="Python.graph" />
+        <item itemvalue="Python.rotation" />
+        <item itemvalue="Python.table" />
       </list>
     </recent_temporary>
   </component>
@@ -220,6 +246,19 @@
       <option name="presentableId" value="Default" />
       <updated>1726423987926</updated>
     </task>
+    <task id="LOCAL-00001" summary="1.0">
+      <option name="closed" value="true" />
+      <created>1726551285942</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1726551285943</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0" />
   </component>
 </project>

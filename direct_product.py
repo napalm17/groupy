@@ -16,3 +16,13 @@ class DirectProduct:
     def __hash__(self):
         return hash((self.element1, self.element2))
 
+    def __lt__(self, other):
+        return (self.element1, self.element2) < (other.element1, other.element2)
+
+    def __gt__(self, other):
+        return (self.element1, self.element2) > (other.element1, other.element2)
+
+
+
+
+

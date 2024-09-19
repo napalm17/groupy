@@ -1,16 +1,12 @@
 from group import Group
-from operations import add_mod_n
-from algorithms import Algo
-from integer import IntegerMod
-from operations import bijection
-import math
-from map import Map
-from bijection import Bijection
+from helpers.algorithms import Algo
+from elements.integer import IntegerMod
 from dihedral import DihedralGroup
+
 
 class CyclicGroup(Group):
     def __init__(self, order: int):
-        elements = {IntegerMod(i, order) for i in range(order)}
+        elements = [IntegerMod(i, order) for i in range(order)]
         super().__init__(elements)
 
     def __repr__(self):
@@ -39,9 +35,10 @@ class CyclicGroup(Group):
 
 
 c2 = CyclicGroup(2)
-c4 = CyclicGroup(4)
+c4 = CyclicGroup(6)
+c3 = CyclicGroup(3)
+
 c4sub2 = c4.subgroup(2)
-d2 = DihedralGroup(2)
-print(d2)
-print(c2 * c2 == c4)
-#print(any(Bijection(c2, c4sub2, m).is_isomorphism() for m in range(1, math.factorial(c2.order) + 1)))
+d2 = DihedralGroup(3)
+(c2*c2).cayley_graph().plot()
+

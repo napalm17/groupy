@@ -1,4 +1,4 @@
-from rotation import RotateReflect
+from elements.rotation import RotateReflect
 import itertools
 import math
 

@@ -1,4 +1,4 @@
-from operations import add_mod_n
+from helpers.operations import add_mod_n
 
 
 class IntegerMod:
@@ -19,6 +19,18 @@ class IntegerMod:
 
     def __hash__(self):
         return hash((self.value, self.n))
+
+    def __pow__(self, power, modulo=None):
+        result = self
+        for i in range(power - 1):
+            result *= result
+        return result
+
+    def __lt__(self, other: 'IntegerMod'):
+        return self.value < other.value
+
+    def __gt__(self, other: 'IntegerMod'):
+        return self.value > other.value
 
 a = IntegerMod(1, 10)
 b = IntegerMod(25, 10)

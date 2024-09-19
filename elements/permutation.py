@@ -1,5 +1,5 @@
-from algorithms import Algo
-from operations import perm_composition
+from helpers.algorithms import Algo
+from helpers.operations import perm_composition
 
 
 class PermutationCycle:
@@ -111,3 +111,17 @@ class PermutationArray:
         :return: The permutation represented in cycle notation.
         """
         return PermutationCycle(Algo.one_line_to_cycles(self.sigma))
+
+    def __pow__(self, power, modulo=None):
+        result = self
+        for i in range(power - 1):
+            result *= result
+        return result
+
+    def __lt__(self, other):
+        return self.sigma < other.sigma
+
+    def __gt__(self, other):
+        return self.sigma > other.sigma
+
+

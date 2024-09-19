@@ -1,8 +1,5 @@
 from group import Group
-from operations import perm_composition
-import itertools
-from permutation import PermutationArray
-from symmetric import SymmetricGroup
+from groups.symmetric import SymmetricGroup
 
 class AlternatingGroup(Group):
     def __init__(self, n: int):

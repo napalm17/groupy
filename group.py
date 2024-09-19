@@ -1,10 +1,13 @@
-from itertools import combinations
-from algorithms import Algo
+from itertools import combinations, product
+from helpers.algorithms import Algo
 from tqdm import tqdm
 from direct_product import DirectProduct
 from coset import LeftCoset
-from bijection import Bijection
+from maps.bijection import Bijection
 import math
+from vfx.table import Table
+import numpy as np
+from vfx.graph import Graph
 
 class Group:
     def __init__(self, elements, operation=None):
@@ -28,7 +31,7 @@ class Group:
     def __eq__(self, other: 'Group'):
         if self.order != other.order:
             return False
-        return any(Bijection(self, other, m).is_isomorphism() for m in range(1,  math.factorial(self.order) + 1))
+        return any(Bijection(self, other, m).is_isomorphism() for m in range(math.factorial(self.order) ))
 
     def index(self, g):
         return list(self.elements).index(g)
@@ -43,6 +46,9 @@ class Group:
         return all(N.order in {1, self.order} for N in self.normal_subgroups())
 
     def is_closed(self):
+        #ab = [(a*b) for a in self.elements for b in self.elements if a * b not in self.elements][0]
+        #print('\n\n\n\n')
+        #print(ab in self.elements)
         return all(a * b in self.elements for a in self.elements for b in self.elements)
 
     def identity(self):
@@ -56,6 +62,14 @@ class Group:
 
     def has_inverses(self):
         return all(self.inverse(g) is not None for g in self.elements)
+
+    def do_commute(self, g, h):
+        if g in self.elements and h in self.elements:
+            return g * h == h * g
+        raise ValueError("The given elements don't belong to the group")
+
+    def center(self):
+        return {z for z in self.elements if all(self.do_commute(z , g) for g in self.elements)}
 
     def factoring_subsets(self, maxorder):
         orders = [r for r in Algo.factors(self.order) if r <= maxorder]
@@ -107,6 +121,64 @@ class Group:
             raise ValueError('The input is not a normal subgroup.')
         cosets = {LeftCoset(g, N) for g in self.elements}
         return Group(cosets)
+
+    def generate_from(self, subset):
+        """Generate all elements from a subset using the group operation."""
+        generated = set(subset)
+        while True:
+            new_elements = set()
+            for a, b in product(generated, repeat=2):
+                new_elements.add(a * b)
+            if new_elements.issubset(generated):
+                break
+            generated.update(new_elements)
+        return generated
+
+    def generators(self):
+        """Find all generator sets of the same minimal order and return them."""
+        for size in range(1, self.order + 1):
+            pairs = [(subset, self.generate_from(subset)) for subset in tqdm(combinations(self.elements, size))]
+            generators = [set(subset) for subset, generated in pairs if generated == self.elements]
+            if generators:
+                return generators
+        return None
+
+    def is_generator(self, subset):
+        return self.generate_from(subset) == self.elements
+
+    def cayley_table(self):
+        print(sorted(self.elements))
+        """Creates a Cayley table for the group and returns a Table object."""
+        matrix = [[x * y for x in sorted(self.elements)] for y in [self.inverse(g) for g in sorted(self.elements)]]
+        return Table(np.array(matrix))  # Return a Table object containing the matrix
+
+    def cayley_graph(self, generators=None):
+        """
+        Create a Cayley graph of the group with respect to the given generators.
+
+        Parameters:
+        - generators (list): A list of generators for the group.
+
+        Returns:
+        - Graph: A Graph object representing the Cayley graph.
+        """
+        if not generators:
+            generators = self.generators()[3]
+        # Create a new Graph object
+        graph = Graph()
+        # Add vertices to the graph (group elements)
+        for element in self.elements:
+            graph.add_vertex(element)
+        # Add edges based on generators
+        for g in generators:
+            for elem1 in self.elements:
+                elem2 = elem1 * g
+                if elem2 != elem1:
+                    graph.add_edge(elem1, elem2, generator=g)
+
+
+        return graph
+
 
 
 def add_mod_n(n):

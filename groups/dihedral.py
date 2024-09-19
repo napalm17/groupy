@@ -1,7 +1,5 @@
 from group import Group
-from algorithms import Algo
-from rotation import RotateReflect
-from operations import dihedral_op
+from elements.rotation import RotateReflect
 
 
 class DihedralGroup(Group):
@@ -17,3 +15,4 @@ D3 = DihedralGroup(3)
 
 C3 = D3.normal_subgroups()[1]
 
+#D3.cayley_graph().plot()

@@ -5,7 +5,7 @@ class Map:
         self.f = f
 
     def __repr__(self):
-        return f'Map from {self.G} to {self.H}'
+        return f'[{", ".join([f'{g}->{self.f(g)}' for g in self.G])}]'
 
     def image(self):
         """
