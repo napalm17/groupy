@@ -16,3 +16,6 @@ D3 = DihedralGroup(3)
 C3 = D3.normal_subgroups()[1]
 
 #D3.cayley_graph().plot()
+
+D8 = DihedralGroup(8)
+print(D8.quotient_group(D8.subgroups()[2]).cayley_graph().plot())

@@ -11,6 +11,7 @@ class IntegerMod:
             return IntegerMod(value, self.n)
         return None
 
+
     def __repr__(self):
         return f'{self.value}'
 

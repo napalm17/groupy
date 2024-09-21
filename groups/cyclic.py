@@ -13,10 +13,10 @@ class CyclicGroup(Group):
         return f'C{self.order}={list(self.elements)}'
 
     def __getitem__(self, index):
-        return self.sorted()[index]
+        return self.sorted_elements()[index]
 
     def __iter__(self):
-        return iter(self.sorted())
+        return iter(self.sorted_elements())
 
     def subgroup(self, suborder: int):
         return Group({IntegerMod(i, self.order) for i in range(0, self.order, int(self.order / suborder))})
@@ -27,11 +27,14 @@ class CyclicGroup(Group):
     def normal_subgroups(self):
         return self.subgroups()
 
-    def sorted(self):
+    def sorted_elements(self):
         return sorted(self.elements, key=lambda x: x.value)
 
     def index(self, g):
-        return self.sorted().index(g)
+        return self.sorted_elements().index(g)
+
+    def conjugacy_classes(self):
+        return [{g} for g in self.sorted_elements()]
 
 
 c2 = CyclicGroup(2)
@@ -40,5 +43,7 @@ c3 = CyclicGroup(3)
 
 c4sub2 = c4.subgroup(2)
 d2 = DihedralGroup(3)
-(c2*c2).cayley_graph().plot()
+
+print(d2.conjugacy_classes())
+#(c2*c2).cayley_graph().plot()
 

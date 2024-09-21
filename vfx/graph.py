@@ -69,7 +69,9 @@ class Graph:
         edge_color_values = [generator_color_map[self.edge_generators[edge]] for edge in edge_list]
 
         # Draw the graph with edge colors
-        pos= nx.planar_layout(G)
+        try:
+            pos = nx.planar_layout(G)
+        except: pos = nx.shell_layout(G)
 
 
 

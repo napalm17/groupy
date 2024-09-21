@@ -110,6 +110,10 @@ class Group:
     def conjugacy_class(self, x):
         return {self.conjugate(g, x) for g in self.elements}
 
+    def conjugacy_classes(self):
+        classes = map(set, set([frozenset(self.conjugacy_class(g)) for g in self.elements]))
+        return sorted(classes, key=lambda x: len(x))
+
     def commutator(self, g, h):
         return (g * h) * (self.inverse(g) * self.inverse(h))
 
@@ -122,7 +126,8 @@ class Group:
         cosets = {LeftCoset(g, N) for g in self.elements}
         return Group(cosets)
 
-    def generate_from(self, subset):
+    @staticmethod
+    def generate_from(subset):
         """Generate all elements from a subset using the group operation."""
         generated = set(subset)
         while True:

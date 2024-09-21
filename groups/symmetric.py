@@ -22,6 +22,6 @@ class SymmetricGroup(Group):
 S3 = SymmetricGroup(3)
 A3 = S3.alternating_group()
 
-S3.cayley_graph().plot()
+print(S3.conjugacy_classes())
 
 #print(S3.commutator_subgroup() == CyclicGroup(3))

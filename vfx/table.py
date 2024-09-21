@@ -33,7 +33,7 @@ class Table:
         element_to_num = {elem: i for i, elem in enumerate(unique_elements)}
         numeric_matrix = np.array([[element_to_num[item] for item in row] for row in self.matrix])
         fig, ax = plt.subplots()
-        cax = ax.matshow(numeric_matrix, cmap="plasma")
+        cax = ax.matshow(numeric_matrix, cmap="Dark2")
         fig.colorbar(cax)
         ax.set_xticks([])
         ax.set_yticks([])
