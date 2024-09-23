@@ -1,8 +1,8 @@
 from group import Group
-from helpers.algorithms import Algo
+from helpers import Algo, Character, RoU, Utility
 from elements.integer import IntegerMod
-from dihedral import DihedralGroup
-
+import numpy as np
+from vfx.table import Table
 
 class CyclicGroup(Group):
     def __init__(self, order: int):
@@ -18,10 +18,13 @@ class CyclicGroup(Group):
     def __iter__(self):
         return iter(self.sorted_elements())
 
+    def name(self):
+        return 'C' + str(self.order).translate(Utility.SUBSCRIPT_MAP)
+
     def subgroup(self, suborder: int):
         return Group({IntegerMod(i, self.order) for i in range(0, self.order, int(self.order / suborder))})
 
-    def subgroups(self):
+    def subgroups(self, maxorder=None):
         return [self.subgroup(n) for n in Algo.factors(self.order)]
 
     def normal_subgroups(self):
@@ -36,14 +39,29 @@ class CyclicGroup(Group):
     def conjugacy_classes(self):
         return [{g} for g in self.sorted_elements()]
 
+    def character_table(self):
+        """
+        Compute the character table of a cyclic group of order n.
+        :return: A numpy array with Character instances representing the character table.
+        """
+        n= self.order
+        table = np.array([
+            [Character(RoU(n, k*j).value, RoU(n, k*j).text)
+             for j in range(n)]
+            for k in range(n)
+        ], dtype=object)
 
-c2 = CyclicGroup(2)
-c4 = CyclicGroup(6)
-c3 = CyclicGroup(3)
+        return Table(table, 'Character Table of C' + str(n).translate(Utility.SUBSCRIPT_MAP))
+
+
+
+c2 = CyclicGroup(6)
+c4 = CyclicGroup(4)
+c3 = CyclicGroup(10)
 
 c4sub2 = c4.subgroup(2)
-d2 = DihedralGroup(3)
 
-print(d2.conjugacy_classes())
+V4 = c3 * c3
+print(V4.character_table())
 #(c2*c2).cayley_graph().plot()
 

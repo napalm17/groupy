@@ -4,16 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b0257a8-6d20-4540-b4b8-4a18abfba1ff" name="Changes" comment="1.1">
-      <change afterPath="$PROJECT_DIR$/asdds.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/elements/quaternion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/groups/dicyclic.py" afterDir="false" />
+    <list default="true" id="1b0257a8-6d20-4540-b4b8-4a18abfba1ff" name="Changes" comment="1.2">
+      <change afterPath="$PROJECT_DIR$/helpers/character.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helpers/root_of_unity.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asdds.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/direct_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/direct_product.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/elements/integer.py" beforeDir="false" afterPath="$PROJECT_DIR$/elements/integer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elements/permutation.py" beforeDir="false" afterPath="$PROJECT_DIR$/elements/permutation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elements/quaternion.py" beforeDir="false" afterPath="$PROJECT_DIR$/elements/quaternion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elements/rotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/elements/rotation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elements/unit_complex.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/group.py" beforeDir="false" afterPath="$PROJECT_DIR$/group.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/groups/U(1).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/groups/alternating.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/alternating.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/groups/cyclic.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/cyclic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/groups/dicyclic.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/dicyclic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/groups/dihedral.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/dihedral.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/groups/symmetric.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups/symmetric.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maps/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/maps/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vfx/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/vfx/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vfx/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/vfx/graph.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vfx/table.py" beforeDir="false" afterPath="$PROJECT_DIR$/vfx/table.py" afterDir="false" />
     </list>
@@ -55,51 +67,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.Algorithms.executor": "Run",
-    "Python.Element.executor": "Run",
-    "Python.Group.executor": "Run",
-    "Python.Quaternion.executor": "Run",
-    "Python.Table.executor": "Run",
-    "Python.U(1).executor": "Run",
-    "Python.algorithms.executor": "Run",
-    "Python.alternating.executor": "Run",
-    "Python.asdds.executor": "Run",
-    "Python.automorphism.executor": "Run",
-    "Python.chartable.executor": "Run",
-    "Python.coset.executor": "Run",
-    "Python.cyclic.executor": "Run",
-    "Python.cyclic_group.executor": "Run",
-    "Python.dicyclic.executor": "Run",
-    "Python.dihedral.executor": "Run",
-    "Python.graph.executor": "Run",
-    "Python.group.executor": "Run",
-    "Python.integer.executor": "Run",
-    "Python.operations.executor": "Run",
-    "Python.permutation.executor": "Run",
-    "Python.rotation.executor": "Run",
-    "Python.symmetric.executor": "Run",
-    "Python.table.executor": "Run",
-    "Python.unit_complex.executor": "Run",
-    "Python.unit_complexes.executor": "Run",
-    "Python.utils.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Algorithms.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Element.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Group.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Quaternion.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Table.executor&quot;: &quot;Run&quot;,
+    &quot;Python.U(1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.algorithms.executor&quot;: &quot;Run&quot;,
+    &quot;Python.alternating.executor&quot;: &quot;Run&quot;,
+    &quot;Python.asdds.executor&quot;: &quot;Run&quot;,
+    &quot;Python.automorphism.executor&quot;: &quot;Run&quot;,
+    &quot;Python.chartable.executor&quot;: &quot;Run&quot;,
+    &quot;Python.coset.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cyclic.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cyclic_group.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dicyclic.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dihedral.executor&quot;: &quot;Run&quot;,
+    &quot;Python.graph.executor&quot;: &quot;Run&quot;,
+    &quot;Python.group.executor&quot;: &quot;Run&quot;,
+    &quot;Python.integer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.operations.executor&quot;: &quot;Run&quot;,
+    &quot;Python.permutation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.product.executor&quot;: &quot;Run&quot;,
+    &quot;Python.rotation.executor&quot;: &quot;Run&quot;,
+    &quot;Python.symmetric.executor&quot;: &quot;Run&quot;,
+    &quot;Python.table.executor&quot;: &quot;Run&quot;,
+    &quot;Python.unit_complex.executor&quot;: &quot;Run&quot;,
+    &quot;Python.unit_complexes.executor&quot;: &quot;Run&quot;,
+    &quot;Python.utils.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Visualisation" />
       <recent name="$PROJECT_DIR$/helpers" />
+      <recent name="$PROJECT_DIR$/Visualisation" />
       <recent name="$PROJECT_DIR$/groups" />
       <recent name="$PROJECT_DIR$/maps" />
       <recent name="$PROJECT_DIR$/elements" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.dicyclic">
-    <configuration name="asdds" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.symmetric">
+    <configuration name="cyclic" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="groupy" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -108,33 +121,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/groups" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/asdds.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="chartable" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="groupy" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/chartable.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/groups/cyclic.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,7 +178,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="quaternion" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="product" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="groupy" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -196,11 +187,33 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/elements" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/groups" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/elements/quaternion.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/groups/product.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="symmetric" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="groupy" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/groups" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/groups/symmetric.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -211,11 +224,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.dicyclic" />
-        <item itemvalue="Python.quaternion" />
-        <item itemvalue="Python.asdds" />
-        <item itemvalue="Python.chartable" />
+        <item itemvalue="Python.symmetric" />
+        <item itemvalue="Python.cyclic" />
         <item itemvalue="Python.dihedral" />
+        <item itemvalue="Python.product" />
+        <item itemvalue="Python.dicyclic" />
       </list>
     </recent_temporary>
   </component>
@@ -251,12 +264,21 @@
       <option name="project" value="LOCAL" />
       <updated>1726719945739</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="1.2">
+      <option name="closed" value="true" />
+      <created>1726956532899</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726956532899</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1.0" />
     <MESSAGE value="1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.1" />
+    <MESSAGE value="1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.2" />
   </component>
 </project>

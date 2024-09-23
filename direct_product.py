@@ -1,4 +1,3 @@
-
 class DirectProduct:
     def __init__(self, element1, element2):
         self.element1 = element1

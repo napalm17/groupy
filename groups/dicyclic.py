@@ -7,7 +7,7 @@ class Dicyclic(Group):
         self.n = n
         j = UnitQuaternion(0, True, n)
         i = UnitQuaternion(1, False, n)
-        elements = Group.generate_from({i, j})
+        elements = sorted(Group.generate_from({i, j}))
         super().__init__(elements)
 
 
@@ -15,4 +15,4 @@ Q8 = Dicyclic(2)
 Q16 = Dicyclic(4)
 Q32 =Dicyclic(5)
 
-print(Q32.cayley_graph().plot())
+print(Q8.elements)

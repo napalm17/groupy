@@ -1,4 +1,4 @@
-from helpers.operations import add_mod_n
+from helpers import add_mod_n
 
 
 class IntegerMod:
@@ -10,7 +10,6 @@ class IntegerMod:
             value = add_mod_n(self.n)(self.value, other.value)
             return IntegerMod(value, self.n)
         return None
-
 
     def __repr__(self):
         return f'{self.value}'
@@ -33,5 +32,4 @@ class IntegerMod:
     def __gt__(self, other: 'IntegerMod'):
         return self.value > other.value
 
-a = IntegerMod(1, 10)
-b = IntegerMod(25, 10)
+

@@ -64,21 +64,16 @@ class Graph:
         unique_generators = list(set(self.edge_generators.values()))
         color_map = plt.get_cmap('Set1')
         generator_color_map = {gen: color_map(i) for i, gen in enumerate(unique_generators)}
-        # Retrieve actual edge order as used by NetworkX
-        edge_list = list(G.edges())
-        edge_color_values = [generator_color_map[self.edge_generators[edge]] for edge in edge_list]
+        edge_color_values = [generator_color_map[self.edge_generators[edge]] for edge in list(G.edges())]
 
         # Draw the graph with edge colors
         try:
             pos = nx.planar_layout(G)
-        except: pos = nx.shell_layout(G)
-
-
+        except:
+            pos = nx.shell_layout(G)
 
         nx.draw(G, pos, with_labels=True, node_color='black', edge_color=edge_color_values,
                 node_size=500, font_size=10, font_color='white', arrows=True, edgecolors='black')
-
-
 
         # Create a legend
         handles = [plt.Line2D([0], [0], color=generator_color_map[gen], lw=2) for gen in unique_generators]

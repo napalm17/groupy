@@ -2,14 +2,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-
 class Table:
-    def __init__(self, matrix: np.ndarray):
+    def __init__(self, matrix: np.ndarray, title: str='Cayley Table'):
         """
         Parameters:
         matrix (np.ndarray): A 2D NumPy array representing the Cayley table.
         """
         self.matrix = matrix
+        self.title = title
 
     def __str__(self):
         """Formats the matrix as a rectangular table with horizontal lines when printed."""
@@ -22,18 +22,13 @@ class Table:
     def plot(self):
         """
         Plots the Cayley table using matplotlib, visualizing the table as a heatmap.
-
-        The matrix entries are mapped to unique colors, and a color bar is included
-        to show the mapping of values to colors.
-
-        Returns:
-        None
         """
         unique_elements = np.unique(self.matrix)
+        print(unique_elements)
         element_to_num = {elem: i for i, elem in enumerate(unique_elements)}
         numeric_matrix = np.array([[element_to_num[item] for item in row] for row in self.matrix])
         fig, ax = plt.subplots()
-        cax = ax.matshow(numeric_matrix, cmap="Dark2")
+        cax = ax.matshow(numeric_matrix, cmap="Pastel2_r")
         fig.colorbar(cax)
         ax.set_xticks([])
         ax.set_yticks([])
@@ -43,7 +38,7 @@ class Table:
                 value = self.matrix[i, j]
                 ax.text(j, i, str(value), va='center', ha='center', color="black", fontsize=8)
 
-        plt.title('Cayley Table')
+        plt.title(self.title)
         plt.show()
 
 id = np.zeros((5,5))

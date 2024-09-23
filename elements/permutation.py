@@ -1,5 +1,4 @@
-from helpers.algorithms import Algo
-from helpers.operations import perm_composition
+from helpers import Algo, perm_composition
 
 
 class PermutationCycle:
@@ -76,7 +75,8 @@ class PermutationArray:
         Returns:
         str: String representation of the permutation in one line notation.
         """
-        return ''.join([str(p) for p in self.sigma])
+        #return ''.join([str(p) for p in self.sigma])
+        return self.get_cycle()
 
     def __mul__(self, other: 'PermutationArray'):
         """
@@ -110,7 +110,7 @@ class PermutationArray:
         """
         :return: The permutation represented in cycle notation.
         """
-        return PermutationCycle(Algo.one_line_to_cycles(self.sigma))
+        return str(PermutationCycle(Algo.one_line_to_cycles(self.sigma)))
 
     def __pow__(self, power, modulo=None):
         result = self

@@ -1,5 +1,5 @@
 from group import Group
-from groups.symmetric import SymmetricGroup
+from symmetric import SymmetricGroup
 
 class AlternatingGroup(Group):
     def __init__(self, n: int):

@@ -13,15 +13,6 @@ class SymmetricGroup(Group):
     def __repr__(self):
         return f'S{self.n}={self.elements}'
 
+
     def alternating_group(self):
         return self.commutator_subgroup()
-
-
-
-
-S3 = SymmetricGroup(3)
-A3 = S3.alternating_group()
-
-print(S3.conjugacy_classes())
-
-#print(S3.commutator_subgroup() == CyclicGroup(3))

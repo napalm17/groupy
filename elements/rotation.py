@@ -1,4 +1,4 @@
-from helpers.utils import Utility
+from helpers import Utility
 
 class RotateReflect:
     def __init__(self, rotations: int, reflection=False, order=1):

@@ -1,13 +1,12 @@
 from itertools import combinations, product
-from helpers.algorithms import Algo
+from helpers import Algo
 from tqdm import tqdm
 from direct_product import DirectProduct
 from coset import LeftCoset
-from maps.bijection import Bijection
+from maps import Bijection
 import math
-from vfx.table import Table
 import numpy as np
-from vfx.graph import Graph
+from vfx import Graph, Table
 
 class Group:
     def __init__(self, elements, operation=None):
@@ -20,7 +19,7 @@ class Group:
 
     def __mul__(self, other: 'Group'):
         product_elements = [DirectProduct(a, b) for a in self.elements for b in other.elements]
-        return Group(product_elements)
+        return ProductGroup(product_elements, self, other)
 
     def __iter__(self):
         return iter(self.elements)
@@ -168,7 +167,7 @@ class Group:
         - Graph: A Graph object representing the Cayley graph.
         """
         if not generators:
-            generators = self.generators()[3]
+            generators = self.generators()[0]
         # Create a new Graph object
         graph = Graph()
         # Add vertices to the graph (group elements)
@@ -184,6 +183,19 @@ class Group:
 
         return graph
 
+    def character_table(self):
+        return None
+
+
+class ProductGroup(Group):
+    def __init__(self, elements, G, H, operation=None):
+        self.G = G
+        self.H = H
+        super().__init__(elements)
+
+    def character_table(self):
+        matrix = np.kron(self.G.character_table().matrix, self.H.character_table().matrix)
+        return Table(matrix)
 
 
 def add_mod_n(n):
