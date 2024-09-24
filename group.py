@@ -186,6 +186,15 @@ class Group:
     def character_table(self):
         return None
 
+    def subgroup_lattice(self):
+        subgroups = [sg.elements for sg in self.subgroups()]
+        lattice_edges, nodes = Algo.build_partial_ordering(subgroups)
+        Graph.plot_inclusion_tree(lattice_edges, nodes)
+        return lattice_edges
+
+
+
+
 
 class ProductGroup(Group):
     def __init__(self, elements, G, H, operation=None):

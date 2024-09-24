@@ -3,6 +3,15 @@ from helpers import Utility
 
 class UnitQuaternion:
     def __init__(self, i: int, j: bool, n: int, sgn: int=1):
+        """
+         Initialize a unit quaternion.
+
+         Parameters:
+         i (int): The power of the generator i.
+         j (bool): A boolean indicating a property of generator j.
+         n (int): The modulus.
+         sgn (int): The sign of the quaternion (default is 1).
+         """
         assert 0 <= i <= n
         self.i = i
         self.j = j

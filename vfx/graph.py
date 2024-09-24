@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import networkx as nx
-
+from helpers import Algo
+import numpy as np
 
 class Graph:
     """
@@ -49,6 +50,23 @@ class Graph:
         """
         self.edges.append((vertex1, vertex2))
         self.edge_generators[(vertex1, vertex2)] = generator
+
+    @staticmethod
+    def plot_inclusion_tree(edges, nodes):
+        """Plots the inclusion graph as a tree."""
+        G = nx.DiGraph()
+        G.add_edges_from(edges)
+        plt.figure(figsize=(8, 6))
+
+        sizes = np.array([len(s) for s in nodes])
+        _, y_coordinates = np.unique(sizes, return_inverse=True)
+        x_coordinates = Algo.transform_indices(sizes)
+        pos = {node: (x, y) for node, x, y in zip(nodes,x_coordinates, y_coordinates)}
+        colors = plt.cm.viridis(np.array(y_coordinates) / np.max(y_coordinates))  # Normalize sizes to [0, 1] for colormap
+        print(colors)
+        print(sizes)
+        nx.draw(G, pos, with_labels=True, node_size=2000, node_color=colors, font_size=8, font_weight='bold')
+        plt.show()
 
     def plot(self):
         """

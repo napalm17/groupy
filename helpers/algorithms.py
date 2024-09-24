@@ -1,9 +1,59 @@
 import math
+from collections import defaultdict
+import numpy as np
 
 class Algo:
 
     @staticmethod
+    def transform_indices(input_array):
+        input_array = np.array(input_array)
+        result = np.zeros_like(input_array, dtype=int)  # Initialize result array with zeros
+
+        # Get unique values and their counts
+        unique_values, counts = np.unique(input_array, return_counts=True)
+
+        # Assign values centered around zero
+        for unique_value, count in zip(unique_values, counts):
+            indices = np.where(input_array == unique_value)[0]
+            half_range = (count - 1) / 2
+            centered_values = np.arange(-half_range, half_range + 1)  # Create centered values
+            result[indices] = centered_values[:len(indices)]  # Assign based on indices
+
+        return result
+
+    @staticmethod
+    def build_partial_ordering(sets):
+        """Builds a directed graph representing the inclusion relationships between sets."""
+        edges = []
+
+        # Compare every pair of sets to check for inclusion
+        for i, set_a in enumerate(sets):
+            for j, set_b in enumerate(sets):
+                if i != j and set_a.issubset(set_b):
+                    # Check if set_a is a subset of any other sets
+                    smaller_set = set_b
+                    for k, set_c in enumerate(sets):
+                        if k != i and set_a.issubset(set_c) and set_b != set_c:
+                            if len(set_c) < len(smaller_set):
+                                smaller_set = set_c
+                    edges.append((tuple(sorted(set_a)), tuple(sorted(smaller_set))))
+
+        return edges, [tuple(sorted(set)) for set in sets]
+
+    @staticmethod
     def factors(n):
+        """
+        Get all factors of a positive integer n.
+
+        Parameters:
+        n (int): A positive integer.
+
+        Returns:
+        list: A sorted list of factors of n.
+
+        Raises:
+        ValueError: If n is not a positive integer.
+        """
         if n <= 0:
             raise ValueError("Input must be a positive integer.")
 
@@ -20,22 +70,33 @@ class Algo:
 
     @staticmethod
     def do_commute(trans1, trans2):
-        # Two transpositions commute if they share no common element
+        """
+        Check if two transpositions commute.
+
+        Parameters:
+        trans1 (list): First transposition.
+        trans2 (list): Second transposition.
+
+        Returns:
+        bool: True if the transpositions commute, False otherwise.
+        """
         return not bool(set(trans1) & set(trans2))
 
     @staticmethod
     def simplify_transpositions(transpositions: list[list[int]]) -> list[list[int]]:
         """
+        Simplify a list of transpositions by applying commuting and cancellation rules.
+
         Parameters:
-        transpositions: list[list[int]]: A list of transpositions, each represented as a list of length 2.
+        transpositions (list[list[int]]): A list of transpositions, each represented as a list of length 2.
+
         Returns:
-        list[list[int]]: A list of transpositions after applying the commuting and cancellation rules.
+        list[list[int]]: A list of simplified transpositions.
         """
         j = 0
         while j < len(transpositions) - 1:
             i = 0
             while i < len(transpositions) - 1:
-                print(transpositions)
                 trans1, trans2 = transpositions[i: i + 2]
                 if sorted(trans1) == sorted(trans2):
                     transpositions.pop(i)
@@ -47,6 +108,7 @@ class Algo:
                 i += 1
             j += 1
         return transpositions
+
     @staticmethod
     def transpositions_to_disjoint_cycles(transpositions):
         """
@@ -77,8 +139,6 @@ class Algo:
                     current = mapping[current]
                 if len(cycle) > 1:
                     cycles.append(tuple(cycle))
-        # Sort each cycle internally
-        #sorted_cycles = [sorted(cycle) for cycle in cycles]
         # Sort cycles based on their smallest element
         cycles.sort(key=lambda x: x[0])
         return cycles
@@ -86,8 +146,11 @@ class Algo:
     @staticmethod
     def one_line_to_cycles(perm: tuple):
         """
+        Convert a permutation from one-line notation to disjoint cycles.
+
         Parameters:
         perm (tuple): A tuple of integers representing a permutation in one-line notation.
+
         Returns:
         list: A list of tuples representing the permutation in disjoint cycles notation.
         """
@@ -107,10 +170,8 @@ class Algo:
 
         return cycles
 
-    # Example usage
-
+# Example usage
 perm = (2, 1, 4, 3)
 cycles = Algo.one_line_to_cycles(perm)
-#print(cycles)  # Output: [(3, 4)]
-#print(Algo.factors(28))
-
+# print(cycles)  # Output: [(3, 4)]
+# print(Algo.factors(28))

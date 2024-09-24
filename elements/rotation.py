@@ -2,6 +2,14 @@ from helpers import Utility
 
 class RotateReflect:
     def __init__(self, rotations: int, reflection=False, order=1):
+        """
+        Initialize a RotateReflect object.
+
+        Parameters:
+        rotations (int): The number of rotations.
+        reflection (bool): Whether there is a reflection (default is False).
+        order (int): The order of the rotation (default is 1).
+        """
         self.rotations = rotations
         self.reflection = reflection
         self.order = order

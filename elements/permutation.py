@@ -75,8 +75,7 @@ class PermutationArray:
         Returns:
         str: String representation of the permutation in one line notation.
         """
-        #return ''.join([str(p) for p in self.sigma])
-        return self.get_cycle()
+        return ''.join([str(p) for p in self.sigma])
 
     def __mul__(self, other: 'PermutationArray'):
         """

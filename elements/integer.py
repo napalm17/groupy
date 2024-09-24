@@ -3,8 +3,9 @@ from helpers import add_mod_n
 
 class IntegerMod:
     def __init__(self, value, n):
-        self.value = value
+        self.value = value % n
         self.n = n
+
     def __mul__(self, other: 'IntegerMod'):
         if self.n == other.n:
             value = add_mod_n(self.n)(self.value, other.value)
@@ -15,15 +16,15 @@ class IntegerMod:
         return f'{self.value}'
 
     def __eq__(self, other: 'IntegerMod'):
-        return (self.value == other.value) and self.n == other.n
+        return (self.value == other.value) and (self.n == other.n)
 
     def __hash__(self):
         return hash((self.value, self.n))
 
     def __pow__(self, power, modulo=None):
-        result = self
-        for i in range(power - 1):
-            result *= result
+        result = IntegerMod(self.value, self.n)
+        for _ in range(power - 1):
+            result *= self
         return result
 
     def __lt__(self, other: 'IntegerMod'):
@@ -31,5 +32,3 @@ class IntegerMod:
 
     def __gt__(self, other: 'IntegerMod'):
         return self.value > other.value
-
-

@@ -2,10 +2,16 @@ from group import Group
 from helpers import Algo, Character, RoU, Utility
 from elements.integer import IntegerMod
 import numpy as np
-from vfx.table import Table
+from vfx import Table
 
 class CyclicGroup(Group):
     def __init__(self, order: int):
+        """
+        Initialize a CyclicGroup of a given order.
+
+        Parameters:
+        order (int): The order of the cyclic group.
+        """
         elements = [IntegerMod(i, order) for i in range(order)]
         super().__init__(elements)
 
@@ -22,9 +28,25 @@ class CyclicGroup(Group):
         return 'C' + str(self.order).translate(Utility.SUBSCRIPT_MAP)
 
     def subgroup(self, suborder: int):
+        """
+        Initialize a CyclicGroup of a given order.
+
+        Parameters:
+        order (int): The order of the cyclic group.
+        """
         return Group({IntegerMod(i, self.order) for i in range(0, self.order, int(self.order / suborder))})
 
     def subgroups(self, maxorder=None):
+        """
+        Compute all subgroups of the cyclic group up to a specified maximum order.
+
+        Parameters:
+        maxorder (int, optional): The maximum order of subgroups to compute.
+
+        Returns:
+        list: A list of subgroups.
+        """
+
         return [self.subgroup(n) for n in Algo.factors(self.order)]
 
     def normal_subgroups(self):
@@ -55,13 +77,11 @@ class CyclicGroup(Group):
 
 
 
-c2 = CyclicGroup(6)
+c2 = CyclicGroup(2)
 c4 = CyclicGroup(4)
-c3 = CyclicGroup(10)
+c3 = CyclicGroup(3)
 
 c4sub2 = c4.subgroup(2)
 
-V4 = c3 * c3
-print(V4.character_table())
-#(c2*c2).cayley_graph().plot()
+#(c2*c2*c2).subgroup_lattice()
 
